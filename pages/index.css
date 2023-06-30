@@ -2,64 +2,46 @@
 @import url(../vendor/fonts.css);
 @import url(../blocks/pages.css);
 @import url(../blocks/header.css);
+@import url(../blocks/profile.css);
 
-
-.profile{
+.cards{
+    margin-top: 47.25px;
+}
+.card{
+    display: flex;
+    
+    flex-direction: column;
+    list-style: none;
+}
+.card__list{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 282px);
+    grid-gap: 20px 17px;
+    padding: 0;
+    margin: 0;
+}
+.card__image{
+    width: 282px;
+    height: 282px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.card__description{
     display: flex;
     align-items: center;
-    padding-top: 40px;
-    width: 880px;
-    margin: 0 auto;
+    justify-content: space-between;
+    background: white;
+    color: black;
+    padding: 25px 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.card__like-button{
+    background: url(../images/like\ button.svg) center no-repeat;
+    width: 21px;
+    height: 18px;
+    grid-area: button;
+    border: 0px;
 }
 
-.profile__picture{
-    width: 120px;
-    height: 120px;
-    flex-shrink: 0;
-    border-radius: 120px;
-    background: #C4C4C4;
-    margin-right: 24px;
-}
-.profile__info{
-    display: grid;
-    grid-template-areas: "title button" "description description";
-    grid-template-columns: minmax(auto, 373px) auto;
-    align-items: center;
-    
-}
-.profile__edit-button{
-    background: transparent url(../images/Edit\ Button.svg) center no-repeat;
-    height: 24px;
-    width: 24px;
-    margin-left: 18px;
-    flex-shrink: 0;
-    border: #fff solid;
-    grid-area: button;
-    
-}
-.profile__add-button{
-    background: transparent url(../images/Add\ Button.svg) center no-repeat;
-    width: 150px;
-    height: 50px;
-    flex-shrink: 0;
-    border:#FFFFFF solid 2px;
-    margin-left: auto;
-    
-    grid-area: button;
-}
-.profile__name{
-    margin: 0;
-    font-size: 42px;
-    grid-area: title;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.14;
-}
-.profile__decription{
-   font-size: 18px;
-   line-height: 1.22;
-   font-weight: 400;
-   grid-area: description;
-   margin: 0;
-   padding-top: 7px;
-}
