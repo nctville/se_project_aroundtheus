@@ -1,18 +1,13 @@
 .header{
-    max-width: 880px;
+    margin-top: 45px;
+    
     height: 74px;
     flex-shrink: 0;
+    border-bottom: 1px solid RGBA(84, 84, 84, 0.7);
 }
 .header__logo{
     width: 173px;
     height: 33px;
     flex-shrink: 0;
-    padding-bottom: 0;
     margin-bottom: 41px;
-}
-.header__line{
-    width: 100%;
-    height: 1px;
-    opacity: 0.699999988079071;
-    background: #545454;
 }
