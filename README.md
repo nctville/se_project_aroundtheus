@@ -3,19 +3,27 @@
 ### Overview  
 
 * Intro  
-* Figma  
-* Images  
+* Features  
+* Links  
   
 **Intro**
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
+Third project created at Practicum. A culmination of the previous sprints ( basic positioning + flexbox) and went further. In addition to the previous lessons this project brings together media queries as well as using the design tool Figma.
+**Features**  
   
-**Figma**  
+-HTML5
+-CSS
+-Flexbox
+-Grid
+-BEM
+-Positioning
+-Media Querires
   
-* [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
+**Links**  
   
-**Images**  
+
   
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+
+
+* [Link to my project]   https://nctville.github.io/se_project_aroundtheus/
+* [Link to the project layout on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
