@@ -3,45 +3,5 @@
 @import url(../blocks/pages.css);
 @import url(../blocks/header.css);
 @import url(../blocks/profile.css);
-
-.cards{
-    margin-top: 47.25px;
-}
-.card{
-    display: flex;
-    
-    flex-direction: column;
-    list-style: none;
-}
-.card__list{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, 282px);
-    grid-gap: 20px 17px;
-    padding: 0;
-    margin: 0;
-}
-.card__image{
-    width: 282px;
-    height: 282px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
-.card__description{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-    color: black;
-    padding: 25px 20px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.card__like-button{
-    background: url(../images/like\ button.svg) center no-repeat;
-    width: 21px;
-    height: 18px;
-    grid-area: button;
-    border: 0px;
-}
-
+@import url(../blocks/cards.css);
+@import url(../blocks/footer.css);

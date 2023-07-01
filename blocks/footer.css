@@ -1,0 +1,15 @@
+.footer__copyright{
+    display: flex;
+    width: 318px;
+    height: 18px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #545454;
+    font-size: 18px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 67px;
+    padding-bottom: 60px;
+    }
