@@ -11,3 +11,17 @@
     flex-shrink: 0;
     margin-bottom: 41px;
 }
+
+@media screen and (max-width: 480px){
+    .header__logo{
+    width: 126px;
+    height: 24px;
+    margin: 0;
+    padding-top: 28px;
+    padding-left: 27px;
+    }
+    .header{
+        margin-top: 0;
+        height: 84px
+    }
+}
