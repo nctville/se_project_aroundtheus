@@ -44,6 +44,12 @@
     margin-right: 20px;
 }
 
+.card__like-button:hover {
+    opacity: 0.5;
+    
+    cursor: pointer;
+  }
+
 .card__location{
     text-overflow: ellipsis;
   white-space: nowrap;
