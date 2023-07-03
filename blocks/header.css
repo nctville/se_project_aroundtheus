@@ -3,7 +3,7 @@
     
     height: 74px;
     flex-shrink: 0;
-    border-bottom: 1px solid RGBA(84, 84, 84, 0.7);
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 .header__logo{
     width: 173px;
@@ -22,6 +22,6 @@
     }
     .header{
         margin-top: 0;
-        height: 84px
+        height: 84px;
     }
 }
