@@ -23,12 +23,19 @@
 
   @media screen and (max-width: 480px){
     .footer{
-    margin: 0;
-    padding: 48px 19px 36px 19px;
-    }
+      margin: 0;
+      padding: 48px 19px 36px 19px;
+      }
+   
     .footer__copyright{
       
       width: 282px;
       margin: 0;
-    }
-}
+      color: #545454;
+      font-size: 14px;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+     }
+  }
