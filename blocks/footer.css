@@ -17,7 +17,7 @@
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.21;
 
   }
 
@@ -31,11 +31,7 @@
       
       width: 282px;
       margin: 0;
-      color: #545454;
-      font-size: 14px;
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+      
+   
      }
   }

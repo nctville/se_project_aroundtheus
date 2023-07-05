@@ -35,7 +35,7 @@
 }
 .profile__edit-button:hover {
     opacity: 0.6;
-    border: 1px solid #fff;
+    
     cursor: pointer;
   }
   
@@ -102,22 +102,21 @@
         text-align: center;
         padding-top: 14px;
         padding-bottom: 36px;
-        color: #FFF;
+        
 
 font-size: 14px;
-font-family: Inter, Arial, Helvetica, sans-serif;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+
+
     }
    .profile__name{
     font-size: 22px;
     margin-top: 26.25px;
+    line-height: 1.21;
    }
    .profile__edit-button{
     width: 18px;
     height: 18px;
-    border: 1px solid;
+    
    }
    .profile__add-button{
     background: transparent url(../images/add-small.svg) center no-repeat;
