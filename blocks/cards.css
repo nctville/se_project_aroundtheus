@@ -1,17 +1,17 @@
-.cards{
+.cards {
     margin-top: 47.25px;
-}
-
-.cards__list{
+  }
+  
+  .cards__list {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, 282px);
     grid-gap: 20px 17px;
     padding: 0;
     margin: 0;
-}
-
-.card__description{
+  }
+  
+  .card__description {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,8 +20,8 @@
     padding-left: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-}
-.card__like-button{
+  }
+  .card__like-button {
     background: url(../images/like\ button.svg) center no-repeat;
     width: 21px;
     height: 18px;
@@ -29,34 +29,31 @@
     border: none;
     margin-right: 20px;
     padding: 0;
-    
-}
-
-.card__like-button:hover {
+  }
+  
+  .card__like-button:hover {
     opacity: 0.5;
-    
+  
     cursor: pointer;
   }
-
-.card__location{
+  
+  .card__location {
     text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  color: #000;
-font-size: 24px;
-font-family: Inter, Arial, Helvetica, sans-serif;
-font-style: normal;
-font-weight: 900;
-line-height: 1.21;
-margin: 0;
-max-width: 219px;
-padding: 25px 0 25px;
-}
-
-
-@media screen and (max-width: 480px){
-    .cards{
-        margin-top: 36px;
-        
+    white-space: nowrap;
+    overflow: hidden;
+    color: #000;
+    font-size: 24px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1.21;
+    margin: 0;
+    max-width: 219px;
+    padding: 25px 0 25px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .cards {
+      margin-top: 36px;
     }
-}
+  }
