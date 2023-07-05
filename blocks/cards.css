@@ -54,9 +54,11 @@ font-style: normal;
 font-weight: 900;
 line-height: normal;
 margin: 0;
-
+max-width: 219px;
 padding: 25px 0 25px;
 }
+
+
 @media screen and (max-width: 480px){
     .cards{
         margin-top: 36px;
