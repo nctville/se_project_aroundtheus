@@ -1,11 +1,11 @@
 .header{
     margin-top: 45px;
     
-    height: 74px;
     flex-shrink: 0;
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 .header__logo{
+    margin-top: 45px;
     width: 173px;
     height: 33px;
     flex-shrink: 0;
@@ -33,6 +33,6 @@
     }
     .header{
         margin-top: 0;
-        height: 84px;
+        padding-bottom: 32px;
     }
 }
