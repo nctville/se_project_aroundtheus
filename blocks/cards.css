@@ -1,12 +1,7 @@
 .cards{
     margin-top: 47.25px;
 }
-.card{
-    display: flex;
-    
-    flex-direction: column;
-    list-style: none;
-}
+
 .cards__list{
     display: grid;
     justify-content: center;
@@ -36,8 +31,10 @@
     width: 21px;
     height: 18px;
     grid-area: button;
-    border: 0px;
+    border: none;
     margin-right: 20px;
+    padding: 0;
+    
 }
 
 .card__like-button:hover {
@@ -56,9 +53,13 @@ font-family: Inter, Arial, Helvetica, sans-serif;
 font-style: normal;
 font-weight: 900;
 line-height: normal;
+margin: 0;
+
+padding: 25px 0 25px;
 }
 @media screen and (max-width: 480px){
     .cards{
         margin-top: 36px;
+        
     }
 }
