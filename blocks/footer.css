@@ -11,8 +11,9 @@
   color: #545454;
   font-size: 18px;
   margin: 0;
+  line-height: 1.21;
  
-}
+ }
 
 @media screen and (max-width: 480px) {
   .footer {
