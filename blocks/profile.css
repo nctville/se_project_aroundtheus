@@ -88,6 +88,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 36px;
   }
 
   .profile__info {
@@ -124,6 +125,7 @@
     background: transparent url(../images/add-small.svg) center no-repeat;
     margin: 0;
     width: 282px;
+    
   }
 
   .profile__picture {
