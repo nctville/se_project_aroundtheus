@@ -11,14 +11,14 @@
   margin: 0;
 }
 
-.cards__image {
+.card__image {
   width: 282px;
   height: 282px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
 
-.cards__description {
+.card__description {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,7 +29,7 @@
   border-bottom-right-radius: 10px;
 }
 
-.cards__like-button {
+.card__like-button {
   background: url(../images/like\ button.svg) center no-repeat;
   width: 21px;
   height: 18px;
@@ -39,12 +39,12 @@
   padding: 0;
 }
 
-.cards__like-button:hover {
+.card__like-button:hover {
   opacity: 0.5;
   cursor: pointer;
 }
 
-.cards__location {
+.card__location {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
