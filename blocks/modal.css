@@ -6,8 +6,8 @@
     bottom: 0;
     right: 0;
     z-index: 999;
-    /* display: none; remember to come back to this when done stying */
-     display: flex;
+    
+     display: none;
     
     align-items: center;
     justify-content: center;
@@ -120,7 +120,7 @@
         line-height: 1.21;
         margin-bottom: 76px;
     }
-    .modal__input{
+    /* .modal__input{ */
      
         /* padding-bottom: 9px; */
         /* margin-bottom: 29.24px; maybe have to do this */
@@ -139,4 +139,4 @@
         font-weight: 400;
         line-height: 1.21;
     }
-  }
+  
