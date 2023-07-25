@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -108,29 +108,28 @@
       </footer>
     </div>
 
-    <div class="modal">
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close"></button>
+        <button class="modal__close" id="modal-close-button"></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form">
           <input
-          type="text"
-          class="modal__input"
-          id="name"
-          name="name"
-          placeholder="Jacques Cousteau"
-          required
+            type="text"
+            class="modal__input"
+            id="name"
+            name="name"
+            placeholder="Jacques Cousteau"
+            required
           />
           <input
-          type="text"
-          class="modal__input"
-      
-          id="description"
-          name="description"
-          placeholder="Explorer"
-          required
+            type="text"
+            class="modal__input"
+            id="description"
+            name="description"
+            placeholder="Explorer"
+            required
           />
-         <button class="modal__button">Save</button>
+          <button class="modal__button">Save</button>
         </form>
       </div>
     </div>
