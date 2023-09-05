@@ -32,7 +32,28 @@
   padding: 0;
 }
 
+.card__like-button_active {
+  background-image: url(../images/like-click.svg);
+}
+
 .card__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.card__delete-button {
+  
+  background: url(../images/Trash.svg) center no-repeat;
+  background-color: none;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  border: none;
+  top: 30px;
+  grid-area: button;
+  left: 250px;
+}
+.card__delete-button:hover {
   opacity: 0.5;
   cursor: pointer;
 }

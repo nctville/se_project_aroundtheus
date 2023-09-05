@@ -27,7 +27,7 @@
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
 }
 
-#modal-close-button {
+.modal__close {
   background-image: url(../images/close-icon.svg);
   border: none;
   background-color: transparent;
