@@ -92,11 +92,20 @@
         </form>
       </div>
     </div>
+    <!--Preview Modal-->
+    <div class="modal" id="modal__preview-image">
+      <div class="modal__container modal__container_preview"> <!--maybe just modal__container_preview-->
+        <button class="modal__close" id="modal-preview-close"></button>
+        <img class="modal__preview" src="" alt="">
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
         <button class="card__delete-button"></button>
         <img src="" alt="" class="card__image" />
-        
+
         <div class="card__description">
           <h2 class="card__location"></h2>
           <button class="card__like-button" type="button"></button>

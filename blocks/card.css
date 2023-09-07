@@ -42,7 +42,6 @@
 }
 
 .card__delete-button {
-  
   background: url(../images/Trash.svg) center no-repeat;
   background-color: none;
   width: 18px;
