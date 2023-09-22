@@ -67,7 +67,7 @@ const descriptionInput = document.querySelector(
 );
 const titleInput = addCardForm.querySelector(".modal__input_type_title");
 const urlInput = addCardForm.querySelector(".modal__input_type_url");
-
+/*
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
@@ -75,6 +75,7 @@ function closeModal(modal) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
+*/
 
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
@@ -144,14 +145,14 @@ closePreviewBtn.addEventListener("click", () => closeModal(modalPreview));
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", escapeClose);
+  document.removeEventListener("keydown", pushEscapeClose);
 }
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", escapeClose);
+  document.addEventListener("keydown", pushEscapeClose);
 }
 
-function escapeClose(e) {
+function pushEscapeClose(e) {
   if (e.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closeModal(openedModal);
@@ -160,11 +161,13 @@ function escapeClose(e) {
 
 
 
-document.addEventListener("mousedown", (e) => {
-  if (e.target.classList.contains('modal_opened')) {
-    const openedModal = document.querySelector('.modal_opened')
-    closeModal(openedModal);
-  }
+  addEventListener("mousedown", (e) => {
+   
+    if (e.target.classList.contains('modal_opened')) {
+      closeModal(e.target);
+    } 
+    closeModal(modal);
+  
 });
 
 initialCards.forEach((cardData) => {
