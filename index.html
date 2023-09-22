@@ -45,24 +45,37 @@
       <div class="modal__container">
         <button class="modal__close" id="modal-close-button"></button>
         <p class="modal__heading">Edit profile</p>
-        <form class="modal__form">
+        <form class="modal__form" id="edit-profile-form">
           <input
             type="text"
             class="modal__input modal__input_type_name"
             id="profile-name-input"
             name="name"
             placeholder="Name"
+            maxlength="40"
+            minlength="2"
             required
           />
+          <div class="modal_wrap">
+            <span class="modal__error" id="profile-name-input-error"></span>
+          </div>
           <input
             type="text"
             class="modal__input modal__input_type_description"
             id="profile-description-input"
             name="description"
             placeholder="Description"
+            maxlength="200"
+            minlength="2"
             required
           />
-          <button class="modal__button">Save</button>
+          <div class="modal_wrap">
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
+          </div>
+          <button class="modal__button modal__button_disabled" disabled>Save</button>
         </form>
       </div>
     </div>
@@ -71,15 +84,21 @@
       <div class="modal__container">
         <button class="modal__close" id="add-card-close"></button>
         <p class="modal__heading">New Place</p>
-        <form class="modal__form">
+        <form class="modal__form" id="card-add-form">
           <input
             type="text"
             class="modal__input modal__input_type_title"
             id="add-card-form"
             name="title"
             placeholder="Title"
+            maxlength="200"
+            minlength="2"
             required
           />
+          <div class="modal_wrap">
+
+          <span class="modal__error" id="add-card-form-error"></span>
+          </div>
           <input
             type="url"
             class="modal__input modal__input_type_url"
@@ -88,15 +107,19 @@
             placeholder="Image Link"
             required
           />
-          <button class="modal__button">Create</button>
+          <div class="modal_wrap">
+
+          <span class="modal__error" id="add-image-link-error"></span>
+          </div>
+          <button class="modal__button modal__button_disabled" disabled>Create</button>
         </form>
       </div>
     </div>
     <!--Preview Modal-->
     <div class="modal" id="modal__preview-image">
-      <div class="modal__container modal__container_preview"> <!--maybe just modal__container_preview-->
+      <div class="modal__container modal__container_preview">
         <button class="modal__close" id="modal-preview-close"></button>
-        <img class="modal__preview" src="#" alt="">
+        <img class="modal__preview" src="#" alt="" />
         <p class="modal__caption"></p>
       </div>
     </div>
@@ -114,5 +137,6 @@
     </template>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
