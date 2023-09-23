@@ -182,6 +182,7 @@ modals.addEventListener("mousedown", (e) => {
 });
 */
 
+
 initialCards.forEach((cardData) => {
   renderCard(cardData, cardsListElement);
 });
