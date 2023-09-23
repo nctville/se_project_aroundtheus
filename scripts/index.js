@@ -158,13 +158,31 @@ function pushEscapeClose(e) {
     closeModal(openedModal);
   }
 }
+[profileEditModal, addCardModal, modalPreview].forEach(modal => {
+  modal.addEventListener("mousedown", (e) => {
+  if (e.target.classList.contains("modal_opened")) {
+    closeModal(modal);
+    ;
+  }
+});
+})
 
-addEventListener("mousedown", (e) => {
+/*
+  addEventListener("mousedown", (e) => {
   if (e.target.classList.contains("modal_opened")) {
     closeModal(e.target);
   }
 });
+*/
+/*const modals = document.querySelector('.modal')
+modals.addEventListener("mousedown", (e) => {
+  if (e.target.classList.contains("modal_opened")) {
+    closeModal(e.target);
+  }
+});
+*/
 
 initialCards.forEach((cardData) => {
   renderCard(cardData, cardsListElement);
 });
+
