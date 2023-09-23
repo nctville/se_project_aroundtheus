@@ -137,9 +137,7 @@ profileEditBtn.addEventListener("click", () => {
 });
 addCardBtn.addEventListener("click", () => openModal(addCardModal));
 
-profileCloseBtn.addEventListener("click", () => closeModal(profileEditModal));
-closeCardModal.addEventListener("click", () => closeModal(addCardModal));
-closePreviewBtn.addEventListener("click", () => closeModal(modalPreview));
+
 
 //close with escape
 
@@ -158,15 +156,17 @@ function pushEscapeClose(e) {
     closeModal(openedModal);
   }
 }
-
 const modals = document.querySelectorAll('.modal')
-modals.forEach(modal =>{
-  addEventListener('mousedown', (e) =>{
-    if(e.target.classList.contains('modal_opened')){
-      closeModal(modal)
-    }
-  })
-})
+ modals.forEach((modal) => {
+          modal.addEventListener('mousedown', (e) => {
+              if (e.target.classList.contains('modal_opened')) {
+                  closeModal(modal)
+              }
+              if (e.target.classList.contains('modal__close')) {
+                closeModal(modal)
+              }
+          })
+      })
 
 
 
