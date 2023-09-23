@@ -159,15 +159,10 @@ function pushEscapeClose(e) {
   }
 }
 
-
-
-  addEventListener("mousedown", (e) => {
-   
-    if (e.target.classList.contains('modal_opened')) {
-      closeModal(e.target);
-    } 
-    closeModal(modal);
-  
+addEventListener("mousedown", (e) => {
+  if (e.target.classList.contains("modal_opened")) {
+    closeModal(e.target);
+  }
 });
 
 initialCards.forEach((cardData) => {
