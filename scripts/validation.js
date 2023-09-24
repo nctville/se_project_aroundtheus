@@ -45,31 +45,31 @@ function toggleButtonState(inputEls, submitBtn, { inactiveButtonClass }) {
     })
     PUT THIS IN FUNCTION hasInvalidInput*/
 
-    function disableBtn(submitBtn){
-      submitBtn.classList.add(inactiveButtonClass);
+  function disableBtn(submitBtn) {
+    submitBtn.classList.add(inactiveButtonClass);
     submitBtn.disabled = true;
-    }
+  }
 
-    function enableBtn(submitBtn){
-      submitBtn.classList.remove(inactiveButtonClass);
-    submitBtn.disabled = false
-    }
+  function enableBtn(submitBtn) {
+    submitBtn.classList.remove(inactiveButtonClass);
+    submitBtn.disabled = false;
+  }
 
   if (hasInvalidInput(inputEls)) {
-   /* submitBtn.classList.add(inactiveButtonClass);
+    /* submitBtn.classList.add(inactiveButtonClass);
     submitBtn.disabled = true; HAS DISABLE FUNCTION*/
-    disableBtn(submitBtn)
+    disableBtn(submitBtn);
   } else {
     /*submitBtn.classList.remove(inactiveButtonClass);
     submitBtn.disabled = false; HAS ENABLE FUNCTION*/
-    enableBtn(submitBtn)
+    enableBtn(submitBtn);
   }
 }
 
 function setEventListeners(formEl, options) {
   const { inputSelector, submitButtonSelector } = options;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitBtn = formEl.querySelector(submitButtonSelector); 
+  const submitBtn = formEl.querySelector(submitButtonSelector);
 
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {

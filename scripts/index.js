@@ -137,8 +137,6 @@ profileEditBtn.addEventListener("click", () => {
 });
 addCardBtn.addEventListener("click", () => openModal(addCardModal));
 
-
-
 //close with escape
 
 function closeModal(modal) {
@@ -156,21 +154,21 @@ function pushEscapeClose(e) {
     closeModal(openedModal);
   }
 }
-const modals = document.querySelectorAll('.modal')
- modals.forEach((modal) => {
-          modal.addEventListener('mousedown', (e) => {
-              if (e.target.classList.contains('modal_opened')) {
-                  closeModal(modal)
-              }
-              if (e.target.classList.contains('modal__close')) {
-                closeModal(modal)
-              }
-          })
-      })
 
+//overlay and button close
 
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (e) => {
+    if (e.target.classList.contains("modal_opened")) {
+      closeModal(modal);
+    }
+    if (e.target.classList.contains("modal__close")) {
+      closeModal(modal);
+    }
+  });
+});
 
 initialCards.forEach((cardData) => {
   renderCard(cardData, cardsListElement);
 });
-
