@@ -1,3 +1,6 @@
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -172,3 +175,20 @@ modals.forEach((modal) => {
 initialCards.forEach((cardData) => {
   renderCard(cardData, cardsListElement);
 });
+
+
+//re-name openModal as handleImageClick?
+
+const config = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormValidator = new FormValidator(config, profileEditForm)
+editFormValidator.enableValidation();
+const addCardFormValidator = new FormValidator(config, addCardForm)
+addCardFormValidator.enableValidation();
+
