@@ -33,10 +33,12 @@ const initialCards = [
     alt: "Lago di Braies",
   },
 ];
-
+/*
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
+
+  */
 
 // wrappers
 const cardsListElement = document.querySelector(".cards__list");
@@ -80,9 +82,13 @@ function openModal(modal) {
 }
 */
 
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
+const cardSelector = '#card-template'
+
+function renderCard(data, wrapper) {
+  const card = new Card(data, cardSelector)
+  //const cardElement = getCardElement(cardData);
+
+  wrapper.prepend(card.getView());
 }
 
 function handleProfileFormSubmit(e) {
@@ -100,35 +106,46 @@ function handleAddCardSubmit(e) {
   e.target.reset();
   closeModal(addCardModal);
 }
-
+/*
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
+ 
   const cardTitle = cardElement.querySelector(".card__location");
+  const cardImage = cardElement.querySelector(".card__image");
+  const likeBtn = cardElement.querySelector(".card__like-button");
+  const deleteBtn = cardElement.querySelector(".card__delete-button ");
+
 
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardTitle.textContent = data.name;
 
-  cardImage.addEventListener("click", () => {
-    modalImageElement.src = data.link;
-    modalImageElement.alt = data.name;
-    previewCaption.textContent = data.name;
-    openModal(modalPreview);
-  });
+  
+  
+  
 
-  const likeBtn = cardElement.querySelector(".card__like-button");
-  likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("card__like-button_active");
-  });
-
-  const deleteBtn = cardElement.querySelector(".card__delete-button ");
-  deleteBtn.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  
+  likeBtn.addEventListener("click", handleLikeIcon)
+  deleteBtn.addEventListener("click", handleDeleteIcon)
+  cardImage.addEventListener('click', ()=> handlePreviewPicture(data))
 
   return cardElement;
 }
+
+const handleLikeIcon = e =>{
+  e.target.classList.toggle("card__like-button_active");
+}
+const handleDeleteIcon = e => {
+  e.target.closest('.card').remove
+}
+
+const handlePreviewPicture = data =>{
+  modalImageElement.src = data.link;
+    modalImageElement.alt = data.name;
+    previewCaption.textContent = data.name;
+    openModal(modalPreview);
+}
+*/
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 addCardForm.addEventListener("submit", handleAddCardSubmit);
@@ -172,12 +189,11 @@ modals.forEach((modal) => {
   });
 });
 
-initialCards.forEach((cardData) => {
-  renderCard(cardData, cardsListElement);
+initialCards.forEach((data) => {
+  renderCard(data, cardsListElement);
 });
 
 
-//re-name openModal as handleImageClick?
 
 const config = {
   inputSelector: ".modal__input",
@@ -191,4 +207,5 @@ const editFormValidator = new FormValidator(config, profileEditForm)
 editFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(config, addCardForm)
 addCardFormValidator.enableValidation();
+
 
