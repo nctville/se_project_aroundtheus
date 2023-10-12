@@ -4,17 +4,7 @@ class Card {
     this._link = data.link;
 
     this._cardSelector = cardSelector;
-
     this._handleImageClick = handleImageClick;
-  }
-
-  _getTemplate(){
-    const cardElement = document
-    .querySelector(this._cardSelector)
-    .content.querySelector(".card")
-    .cloneNode(true);
-  
-    return cardElement
   }
 
   _setEventListeners() {
@@ -23,17 +13,23 @@ class Card {
       this._handleLikeIcon();
     });
 
-    const deleteBtn = this._cardElement.querySelector(".card__delete-button ");
-    deleteBtn.addEventListener("click", () =>{ 
+    const deleteBtn = this._cardElement.querySelector(".card__delete-button");
+    deleteBtn.addEventListener("click", () => {
       this._handleDeleteIcon();
     });
 
-    this._cardElement
-    .querySelector(".cards__image")
-    .addEventListener("click", () => {
-      this._handleImageClick(data);
-    });
+    this._cardElement.addEventListener("click", () =>
+      this.handleImageClick(data)
+    );
   }
+/*
+  _handlePreviewPicture() {
+    this._modalImageElement.src = data.link;
+    this._modalImageElement.alt = data.name;
+    this._previewCaption.textContent = data.name;
+    this._handleImageClick(this._link, this._name);
+  }
+  */
 
   _handleLikeIcon() {
     this._cardElement
@@ -44,22 +40,23 @@ class Card {
   _handleDeleteIcon() {
     this._cardElement.remove();
     this._cardElement = null;
-}
-
-
+  }
 
   getView() {
-    this._cardElement = this._getTemplate()
+    this._cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
 
-    this._cardElement.querySelector(
-      ".card__image"
-    ).style.backgroundImage = `url(${this._link})`;
-    this._cardElement.querySelector(".card__location").textContent;
+    const cardTitle = this._cardElement.querySelector(".card__location");
+    const cardImage = this._cardElement.querySelector(".card__image");
 
-  
+    cardImage.src = this._link;
+    cardImage.alt = this._name;
+    cardTitle.textContent = this._name;
 
     this._setEventListeners();
-
+    return this._cardElement;
   }
 }
 
