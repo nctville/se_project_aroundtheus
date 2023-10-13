@@ -87,7 +87,12 @@ const cardSelector = '#card-template'
 
 
 function renderCard(data, wrapper) {
-  const card = new Card(data, cardSelector)
+  const card = new Card(data, cardSelector, (name, link)=>{
+    modalImageElement.src = link;
+    modalImageElement.alt = name;
+    previewCaption.textContent = name;
+    openModal(modalPreview)
+  })
 
   wrapper.prepend(card.getView());
 
@@ -109,6 +114,8 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardsListElement);
   e.target.reset();
   closeModal(addCardModal);
+  addCardFormValidator.toggleButtonState();
+
 }
 
 /*
@@ -216,5 +223,4 @@ const editFormValidator = new FormValidator(config, profileEditForm)
 editFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(config, addCardForm)
 addCardFormValidator.enableValidation();
-
 

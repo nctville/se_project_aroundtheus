@@ -18,11 +18,11 @@ class Card {
       this._handleDeleteIcon();
     });
 
-    this._cardElement.addEventListener("click", () =>
-      this.handleImageClick(data)
-    );
+    this._cardImage.addEventListener("click", () => {
+      this._handleImageClick(this._name, this._link);
+    });
   }
-/*
+  /*
   _handlePreviewPicture() {
     this._modalImageElement.src = data.link;
     this._modalImageElement.alt = data.name;
@@ -48,12 +48,12 @@ class Card {
       .content.querySelector(".card")
       .cloneNode(true);
 
-    const cardTitle = this._cardElement.querySelector(".card__location");
-    const cardImage = this._cardElement.querySelector(".card__image");
+    this._cardTitle = this._cardElement.querySelector(".card__location");
+    this._cardImage = this._cardElement.querySelector(".card__image");
 
-    cardImage.src = this._link;
-    cardImage.alt = this._name;
-    cardTitle.textContent = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
 
     this._setEventListeners();
     return this._cardElement;
