@@ -114,7 +114,7 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardsListElement);
   e.target.reset();
   closeModal(addCardModal);
-  addCardFormValidator.toggleButtonState();
+  addCardFormValidator._toggleButtonState();
 
 }
 
