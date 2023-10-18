@@ -7,13 +7,12 @@
     <meta name="author" content="Nick Turberville" />
     <title>Around The U.S.</title>
     <link rel="shortcut icon" href="./favicon.ico" />
-    <link href="./pages/index.css" rel="stylesheet" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/around-logo.svg"
+          src="<%=require('./images/around-logo.svg')%>"
           alt="Around the US logo"
           class="header__logo"
         />
@@ -21,7 +20,7 @@
       <main class="content">
         <section class="profile">
           <img
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="avatar"
             class="profile__picture"
           />
@@ -138,7 +137,7 @@
       </li>
     </template>
 
-    <script src="./pages/index.js" type="module"></script>
+    <!--<script src="./pages/index.js" type="module"></script>-->
     <!--<script src="./scripts/validation.js"></script> -->
   </body>
 </html>
