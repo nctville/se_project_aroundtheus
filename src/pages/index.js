@@ -1,6 +1,6 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import './index.css'
+import "./index.css"
 
 const initialCards = [
   {
@@ -48,7 +48,6 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardForm = addCardModal.querySelector(".modal__form");
 
-
 //add card variables
 const addCardBtn = document.querySelector(".profile__add-button");
 const closeCardModal = addCardModal.querySelector("#add-card-close");
@@ -84,22 +83,27 @@ function openModal(modal) {
 }
 */
 
-const cardSelector = '#card-template'
+const cardSelector = "#card-template";
 
-
-function renderCard(data, wrapper) {
-  const card = new Card(data, cardSelector, (name, link)=>{
+function createCard(data) {
+  const card = new Card(data, cardSelector, (name, link) => {
     modalImageElement.src = link;
     modalImageElement.alt = name;
     previewCaption.textContent = name;
-    openModal(modalPreview)
-  })
+    openModal(modalPreview);
+  });
 
-  wrapper.prepend(card.getView());
-
+  return card.getView();
 }
 
+function renderCard(data, wrapper) {
+  const cardData = createCard(data);
+  wrapper.prepend(cardData);
+}
 
+initialCards.forEach((data) => {
+  renderCard(data, cardsListElement);
+});
 
 function handleProfileFormSubmit(e) {
   e.preventDefault();
@@ -116,7 +120,6 @@ function handleAddCardSubmit(e) {
   e.target.reset();
   closeModal(addCardModal);
   addCardFormValidator.toggleButtonState();
-
 }
 
 /*
@@ -163,7 +166,6 @@ const handlePreviewPicture = data =>{
 
 */
 
-
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 
@@ -206,12 +208,6 @@ modals.forEach((modal) => {
   });
 });
 
-initialCards.forEach((data) => {
-  renderCard(data, cardsListElement);
-});
-
-
-
 const config = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
@@ -220,8 +216,7 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-const editFormValidator = new FormValidator(config, profileEditForm)
+const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
-const addCardFormValidator = new FormValidator(config, addCardForm)
+const addCardFormValidator = new FormValidator(config, addCardForm);
 addCardFormValidator.enableValidation();
-
