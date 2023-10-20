@@ -1,5 +1,8 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
+import Section from "../components/Section.js";
+import PopupWithForms from "../components/PopupWithForms.js";
+import PopupWithImages from "../components/PopupWithImage.js";
 import "./index.css"
 
 const initialCards = [
@@ -34,6 +37,9 @@ const initialCards = [
     alt: "Lago di Braies",
   },
 ];
+ 
+
+
 /*
 const cardTemplate = document
   .querySelector("#card-template")
@@ -83,6 +89,7 @@ function openModal(modal) {
 }
 */
 
+
 const cardSelector = "#card-template";
 
 function createCard(data) {
@@ -104,6 +111,7 @@ function renderCard(data, wrapper) {
 initialCards.forEach((data) => {
   renderCard(data, cardsListElement);
 });
+
 
 function handleProfileFormSubmit(e) {
   e.preventDefault();
