@@ -1,15 +1,37 @@
-import FormValidator from "../components/FormValidator.js";
-import Card from "../components/Card.js";
-import Section from "../components/Section.js";
-import PopupWithForms from "../components/PopupWithForms.js";
-import PopupWithImages from "../components/PopupWithImage.js";
-import { initialCards, config } from "../utils/constants.js";
-import "./index.css"
 
 
-
-
-
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    alt: "Yosemite Valley",
+  },
+  {
+    name: "Lake Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+    alt: "Lake Louise",
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+    alt: "Bald Mountains",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+    alt: "Latemar",
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+    alt: "Vanoise National Park",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
+    alt: "Lago di Braies",
+  },
+];
 /*
 const cardTemplate = document
   .querySelector("#card-template")
@@ -59,7 +81,6 @@ function openModal(modal) {
 }
 */
 
-
 const cardSelector = "#card-template";
 
 function createCard(data) {
@@ -81,7 +102,6 @@ function renderCard(data, wrapper) {
 initialCards.forEach((data) => {
   renderCard(data, cardsListElement);
 });
-
 
 function handleProfileFormSubmit(e) {
   e.preventDefault();
@@ -186,6 +206,13 @@ modals.forEach((modal) => {
   });
 });
 
+const config = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();

@@ -1,3 +1,4 @@
+
 class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
@@ -22,12 +23,12 @@ class Popup {
   }
 
   setEventListeners() {
-    this._popupElement/addEventListener('mousedown', (e) =>{
+    this._popupElement.addEventListener("mousedown",(e)=>{
       if (e.target.classList.contains("modal_opened")) {
-        this.close()
+        closeModal(modal);
       }
       if (e.target.classList.contains("modal__close")) {
-        this.close()
+        closeModal(modal);
       }
     })
   }
