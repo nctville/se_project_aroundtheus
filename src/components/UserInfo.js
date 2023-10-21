@@ -1,21 +1,20 @@
 class UserInfo {
-    constructor({ nameSelector, jobSelector }) {
-      this._name = nameSelector;
-      this._job = jobSelector;
-    }
-  
-    getUserInfo() {
-      this._name.textContent = profileTitleInput.value;
-      this._job.textContent = profileDescriptionInput.value;
-    }
-  
-    setUserInfo() {
-      nameSelector = document.querySelector(".profile__name");
-      jobSelector = document.querySelector(".profile__description");
-  
-      this._name.textContent = nameInput.value;
-      this._job.textContent = descriptionInput.value;
-    }
+  constructor({ nameSelector, jobSelector }) {
+    this._name = document.querySelector(nameSelector); 
+    this._job = document.querySelector(jobSelector); 
+  }
 
+  getUserInfo() {
+    return {
+      name: this._name.textContent,
+      job: this._job.textContent,
+    };
+  }
+
+  setUserInfo({ name, job }) {
+    this._name.textContent = name;
+    this._job.textContent = job;
+  }
 }
-  export default UserInfo;
+
+export default UserInfo;

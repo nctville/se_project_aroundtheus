@@ -1,12 +1,14 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
+import Popup from "../components/Popup.js";
 import Section from "../components/Section.js";
-import PopupWithForms from "../components/PopupWithForms.js";
-import PopupWithImages from "../components/PopupWithImage.js";
+
 import { initialCards, config } from "../utils/constants.js";
 import "./index.css"
 
-
+const myPopup = new Popup(popupSelector); // Replace '#myPopup' with your actual popup selector
+myPopup.open(); // Open the popup
+myPopup.close(); // Close the popup
 
 
 
@@ -155,6 +157,7 @@ profileEditBtn.addEventListener("click", () => {
 addCardBtn.addEventListener("click", () => openModal(addCardModal));
 
 //close with escape
+/*
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -186,7 +189,7 @@ modals.forEach((modal) => {
   });
 });
 
-
+*/
 const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(config, addCardForm);
