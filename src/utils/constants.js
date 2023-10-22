@@ -40,4 +40,9 @@ export const initialCards = [
     errorClass: "modal__error_visible",
   };
 
- 
+  export const popupSelector = {
+    editPopup: "#profile-edit-modal",
+    addCardPopup: "#add-card-modal",
+    imagePopup: "#modal__preview-image"
+  } 
+
