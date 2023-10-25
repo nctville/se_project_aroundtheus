@@ -95,19 +95,20 @@ initialCards.forEach((data) => {
 const userInfo = new UserInfo({nameSelector: '.profile__name', jobSelector:'.profile__description'})
 
 function handleProfileFormSubmit(data) {
-  
   userInfo.setUserInfo(data);
+
   profileName.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
   // closeModal(profileEditModal);
 }
 
-function handleAddCardSubmit(e) {
-  e.preventDefault();
+function handleAddCardSubmit(data) {
+  userInfo.setUserInfo(data);
   const name = titleInput.value;
   const link = urlInput.value;
   renderCard({ name, link }, cardsListElement);
   e.target.reset();
+  e.preventDefault()
   // closeModal(addCardModal);
   addCardFormValidator.toggleButtonState();
 }
