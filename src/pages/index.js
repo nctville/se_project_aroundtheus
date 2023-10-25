@@ -66,10 +66,10 @@ function createCard(data) {
     // modalImageElement.alt = name;
     // previewCaption.textContent = name;
     // openModal(modalPreview);
-    const popUp = new PopupWithImage({
+    const previewImage = new PopupWithImage({
       popupSelector: "#modal__preview-image",
     });
-    popUp.open({ link, name });
+    previewImage.open({ link, name });
   });
 
   return card.getView();
@@ -102,14 +102,12 @@ function handleProfileFormSubmit(data) {
   // closeModal(profileEditModal);
 }
 
-function handleAddCardSubmit(data) {
-  userInfo.setUserInfo(data);
+function handleAddCardSubmit() {
+
   const name = titleInput.value;
   const link = urlInput.value;
   renderCard({ name, link }, cardsListElement);
-  e.target.reset();
-  e.preventDefault()
-  // closeModal(addCardModal);
+  
   addCardFormValidator.toggleButtonState();
 }
 
