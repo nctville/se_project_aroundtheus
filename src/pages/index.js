@@ -59,7 +59,6 @@ function openModal(modal) {
 //SECTION
 const cardSelector = "#card-template";
 
-
 function createCard(data) {
   const card = new Card(data, cardSelector, (name, link) => {
     // modalImageElement.src = link;
@@ -92,7 +91,10 @@ initialCards.forEach((data) => {
 });
 */
 
-const userInfo = new UserInfo({nameSelector: '.profile__name', jobSelector:'.profile__description'})
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  jobSelector: ".profile__description",
+});
 
 function handleProfileFormSubmit(data) {
   userInfo.setUserInfo(data);
@@ -103,11 +105,10 @@ function handleProfileFormSubmit(data) {
 }
 
 function handleAddCardSubmit() {
-
   const name = titleInput.value;
   const link = urlInput.value;
   renderCard({ name, link }, cardsListElement);
-  
+
   addCardFormValidator.toggleButtonState();
 }
 
@@ -155,26 +156,27 @@ const handlePreviewPicture = data =>{
 
 */
 
- //profileEditForm.addEventListener("submit", handleProfileFormSubmit);
- //addCardForm.addEventListener("submit", handleAddCardSubmit);
+//profileEditForm.addEventListener("submit", handleProfileFormSubmit);
+//addCardForm.addEventListener("submit", handleAddCardSubmit);
 
+const popupEditForm = new PopupWithForms({
+  popupSelector: "#profile-edit-modal",
+  handleFormSubmit: handleProfileFormSubmit,
+});
 profileEditBtn.addEventListener("click", () => {
-  nameInput.value = profileName.textContent;
-  descriptionInput.value = profileDescription.textContent;
-  // openModal(profileEditModal);
-  const popupForm = new PopupWithForms({
-    popupSelector: "#profile-edit-modal",
-    handleFormSubmit: handleProfileFormSubmit,
-  });
-  popupForm.open();
+ 
+
+  popupEditForm.open();
+});
+
+const popupAddCardForm = new PopupWithForms({
+  popupSelector: "#add-card-modal",
+  handleFormSubmit: handleAddCardSubmit,
 });
 addCardBtn.addEventListener("click", () => {
   // openModal(addCardModal);
-  const popUp = new PopupWithForms({
-    popupSelector: "#add-card-modal",
-    handleFormSubmit: handleAddCardSubmit,
-  });
-  popUp.open();
+
+  popupAddCardForm.open();
 });
 
 //close with escape
