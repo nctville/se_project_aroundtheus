@@ -40,17 +40,22 @@ const titleInput = addCardForm.querySelector(".modal__input_type_title");
 const urlInput = addCardForm.querySelector(".modal__input_type_url");
 
 //SECTION
+
+//Objects
+const previewImage = new PopupWithImage({
+  popupSelector: "#modal__preview-image",
+});
 const cardSelector = "#card-template";
 
+previewImage._setEventListeners();
 function createCard(data) {
   const card = new Card(data, cardSelector, (name, link) => {
-    const previewImage = new PopupWithImage({
-      popupSelector: "#modal__preview-image",
-    });
     previewImage.open({ link, name });
   });
   return card.getView();
+
 }
+
 
 
 function renderCard(data, wrapper) {
@@ -59,7 +64,7 @@ function renderCard(data, wrapper) {
 }
 
 const section = new Section(
-  { items: initialCards, renderer: renderCard },
+  { items: initialCards, renderer: createCard },
   ".cards__list"
 );
 section.renderItems();
@@ -73,10 +78,11 @@ function handleProfileFormSubmit(data) {
   userInfo.setUserInfo(data);
 }
 
-function handleAddCardSubmit() {
-  const name = titleInput.value;
-  const link = urlInput.value;
-  renderCard({ name, link }, cardsListElement);
+function handleAddCardSubmit({title, url}) {
+  //const name = titleInput.value;
+  //const link = urlInput.value;
+  //renderCard({ name: title, link: url }, cardsListElement);
+  section.addItem({ name: title, link: url });
 }
 
 const popupEditForm = new PopupWithForms({

@@ -5,6 +5,7 @@ class PopupWithImage extends Popup {
      super({popupSelector});
      this._image = this._popupElement.querySelector('.modal__preview');
      this._caption = this._popupElement.querySelector('.modal__caption');
+     //this._setEventListeners();
    }
  
    open({link, name}) {
@@ -13,6 +14,11 @@ class PopupWithImage extends Popup {
      this._caption.textContent = name;
      super.open();
    }
+
+   close() {
+    this._popupElement.classList.remove("modal_opened");
+    document.removeEventListener("keydown", this._handleEscClose);
+  }
  }
 
 

@@ -6,12 +6,13 @@ class Section {
   }
 
   renderItems() {
-    this._items.forEach((item) => {
-      this._renderer(item, this._container);
+    this._items.forEach((data) => {
+      this.addItem(data);
     });
   }
 
-  addItem(element) {
+  addItem(data) {
+    const element = this._renderer(data)
     this._container.prepend(element);
   }
 }
