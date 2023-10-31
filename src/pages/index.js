@@ -52,6 +52,7 @@ function createCard(data) {
   return card.getView();
 }
 
+
 function renderCard(data, wrapper) {
   const cardData = createCard(data);
   wrapper.prepend(cardData);
@@ -87,6 +88,8 @@ profileEditBtn.addEventListener("click", () => {
   popupEditForm.open();
 });
 
+popupEditForm.setEventListeners();
+
 const popupAddCardForm = new PopupWithForms({
   popupSelector: "#add-card-modal",
   handleFormSubmit: handleAddCardSubmit,
@@ -94,6 +97,8 @@ const popupAddCardForm = new PopupWithForms({
 addCardBtn.addEventListener("click", () => {
   popupAddCardForm.open();
 });
+
+popupAddCardForm.setEventListeners()
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
