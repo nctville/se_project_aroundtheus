@@ -8,13 +8,6 @@ import UserInfo from "../components/UserInfo.js";
 import { initialCards, config } from "../utils/constants.js";
 import "./index.css";
 
-/*
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
-
-  */
-
 // wrappers
 const cardsListElement = document.querySelector(".cards__list");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -33,14 +26,12 @@ const modalImageElement = modalPreview.querySelector(".modal__preview");
 const previewCaption = modalPreview.querySelector(".modal__caption");
 
 // Buttons + DOM nodes
-
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const profileCloseBtn = profileEditModal.querySelector(".modal__close");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 // Form data
-
 const nameInput = document.querySelector(".modal__input_type_name");
 const descriptionInput = document.querySelector(
   ".modal__input_type_description"
@@ -58,7 +49,6 @@ function createCard(data) {
     });
     previewImage.open({ link, name });
   });
-
   return card.getView();
 }
 
@@ -93,6 +83,8 @@ const popupEditForm = new PopupWithForms({
   handleFormSubmit: handleProfileFormSubmit,
 });
 profileEditBtn.addEventListener("click", () => {
+  nameInput.value = profileName.textContent;
+  descriptionInput.value = profileDescription.textContent;
   popupEditForm.open();
 });
 
