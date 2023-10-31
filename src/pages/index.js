@@ -83,8 +83,7 @@ const popupEditForm = new PopupWithForms({
   handleFormSubmit: handleProfileFormSubmit,
 });
 profileEditBtn.addEventListener("click", () => {
-  nameInput.value = profileName.textContent;
-  descriptionInput.value = profileDescription.textContent;
+  userInfo.getUserInfo()
   popupEditForm.open();
 });
 
