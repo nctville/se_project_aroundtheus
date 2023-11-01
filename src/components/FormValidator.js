@@ -33,7 +33,7 @@ class FormValidator{
     
   }
 
-  _disableBtn() {
+  disableBtn() {
     this._submitBtn.classList.add(this._inactiveButtonClass);
     this._submitBtn.disabled = true;
   }
@@ -42,7 +42,7 @@ class FormValidator{
    
 
     if (this._hasInvalidInput()) {
-      this._disableBtn(this._submitBtn);
+      this.disableBtn(this._submitBtn);
     } else {
       this._enableBtn(this._submitBtn);
     }
