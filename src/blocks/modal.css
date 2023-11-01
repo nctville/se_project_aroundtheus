@@ -191,4 +191,10 @@
     font-weight: 400;
     line-height: 1.21;
   }
+  .modal__caption {
+    position: absolute;
+    left: auto;
+    top: calc(100% + -20px);
+    margin: 0;
+  }
 }
