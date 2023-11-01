@@ -2,7 +2,7 @@ import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForms from "../components/PopupWithForms.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards, config } from "../utils/constants.js";
@@ -85,7 +85,7 @@ function handleAddCardSubmit({title, url}) {
   section.addItem({ name: title, link: url });
 }
 
-const popupEditForm = new PopupWithForms({
+const popupEditForm = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
   handleFormSubmit: handleProfileFormSubmit,
 });
@@ -96,7 +96,7 @@ profileEditBtn.addEventListener("click", () => {
 
 popupEditForm.setEventListeners();
 
-const popupAddCardForm = new PopupWithForms({
+const popupAddCardForm = new PopupWithForm({
   popupSelector: "#add-card-modal",
   handleFormSubmit: handleAddCardSubmit,
 });
