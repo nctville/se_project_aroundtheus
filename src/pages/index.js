@@ -71,9 +71,6 @@ function handleProfileFormSubmit(data) {
 }
 
 function handleAddCardSubmit({ title, url }) {
-  //const name = titleInput.value;
-  //const link = urlInput.value;
-  //renderCard({ name: title, link: url }, cardsListElement);
   section.addItem({ name: title, link: url });
 }
 
@@ -97,9 +94,9 @@ const popupAddCardForm = new PopupWithForm({
   handleFormSubmit: handleAddCardSubmit,
 });
 
-const submitButton = document.getElementsByClassName(".modal__button")
+
 addCardBtn.addEventListener("click", () => {
-  submitButton.disabled = true
+  addCardFormValidator._disableBtn()
   popupAddCardForm.open();
 });
 
