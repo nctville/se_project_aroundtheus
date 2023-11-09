@@ -11,6 +11,7 @@
 **Intro**
   
 Third project created at Practicum. A culmination of the previous sprints ( basic positioning + flexbox) and went further. In addition to the previous lessons this project brings together media queries as well as using the design tool Figma. We moved on to an introduction of javascript and how to add functionality to the website. Next lessons were concentrating on organizing code, creating classes, and fine-tuning without limiting or affecting any functionality
+
 **Features**  
   
 -HTML5
