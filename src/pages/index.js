@@ -2,6 +2,7 @@ import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import { config } from "../utils/constants.js";
@@ -54,11 +55,29 @@ api
   });
 
 function createCard(data) {
-  const card = new Card(data, cardSelector, (name, link) => {
+  const card = new Card(data, cardSelector, handleDeleteClick, (name, link) => {
     previewImage.open({ link, name });
   });
   return card.getView();
-}
+
+  }
+
+
+  function handleDeleteClick(cardId) {
+    deleteCardConfirm.open();
+  
+    deleteCardConfirm.setSubmitAction(() => {
+      api.deleteCard(cardId)
+        .then(() => {
+          deleteCardConfirm.close();
+          // Assuming cardId is an object with a _handleDeleteIcon method
+          cardId._handleDeleteIcon();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
+  }
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -84,17 +103,20 @@ const popupAddCardForm = new PopupWithForm({
 });
 popupAddCardForm.setEventListeners();
 
-const deleteCardConfirmForm = new PopupWithForm({
+const deleteCardConfirm = new PopupWithConfirmation({
   popupSelector: "#delete-card-modal",
-  
 });
-deleteCardConfirmForm.open()
-deleteCardConfirmForm.setEventListeners();
+deleteCardConfirm.setEventListeners();
+
+
 
 const previewImage = new PopupWithImage({
   popupSelector: "#modal__preview-image",
 });
 previewImage._setEventListeners();
+
+
+
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
