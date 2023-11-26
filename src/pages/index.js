@@ -59,25 +59,7 @@ function createCard(data) {
     previewImage.open({ link, name });
   });
   return card.getView();
-
-  }
-
-
-  function handleDeleteClick(cardId) {
-    deleteCardConfirm.open();
-  
-    deleteCardConfirm.setSubmitAction(() => {
-      api.deleteCard(cardId)
-        .then(() => {
-          deleteCardConfirm.close();
-          // Assuming cardId is an object with a _handleDeleteIcon method
-          cardId._handleDeleteIcon();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    });
-  }
+}
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -109,6 +91,16 @@ const deleteCardConfirm = new PopupWithConfirmation({
 deleteCardConfirm.setEventListeners();
 
 
+function handleDeleteClick(cardId){
+  deleteCardConfirm.open()
+  deleteCardConfirm.setSubmitAction(()=>{
+    api.deleteCard(cardId).then(()=>{
+      deleteCardConfirm.close();
+      cardId._handleDeleteIcon()
+    })
+   
+})
+}
 
 const previewImage = new PopupWithImage({
   popupSelector: "#modal__preview-image",
