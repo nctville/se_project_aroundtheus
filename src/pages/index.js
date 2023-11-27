@@ -91,12 +91,12 @@ const deleteCardConfirm = new PopupWithConfirmation({
 deleteCardConfirm.setEventListeners();
 
 
-function handleDeleteClick(cardId){
+function handleDeleteClick(card){
   deleteCardConfirm.open()
   deleteCardConfirm.setSubmitAction(()=>{
-    api.deleteCard(cardId).then(()=>{
+    api.deleteCard(card._cardId).then(()=>{
       deleteCardConfirm.close();
-      cardId._handleDeleteIcon()
+      card._handleDeleteIcon()
     })
    
 })

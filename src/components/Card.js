@@ -10,9 +10,6 @@ class Card {
     
   }
 
-  getId() {
-    return this._id;
-  }
 
   _setEventListeners() {
     const likeBtn = this._cardElement.querySelector(".card__like-button");
