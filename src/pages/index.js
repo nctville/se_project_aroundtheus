@@ -55,7 +55,7 @@ api
   });
 
 function createCard(data) {
-  const card = new Card(data, cardSelector, handleDeleteClick, (name, link) => {
+  const card = new Card(data, cardSelector, handleDeleteClick, handleLikeClick, (name, link) => {
     previewImage.open({ link, name });
   });
   return card.getView();
@@ -72,6 +72,29 @@ api.getInitialInfo().then((userData) => {
     description: userData.about,
   });
 });
+
+function handleDeleteClick(card) {
+  deleteCardConfirm.open();
+  deleteCardConfirm.setSubmitAction(() => {
+    api.deleteCard(card._cardId).then(() => {
+      deleteCardConfirm.close();
+      card._handleDeleteIcon();
+    });
+  });
+}
+
+function handleLikeClick(card) {
+  if (card.isLiked) {
+    api.likeCard(card._cardId).then(() => {
+      card._handleLikeIcon();
+    });
+  } else {
+    api.dislikeCard(card._cardId).then(() => {
+      card._handleLikeIcon();
+    });
+  }
+}
+
 
 const popupEditForm = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
@@ -90,25 +113,10 @@ const deleteCardConfirm = new PopupWithConfirmation({
 });
 deleteCardConfirm.setEventListeners();
 
-
-function handleDeleteClick(card){
-  deleteCardConfirm.open()
-  deleteCardConfirm.setSubmitAction(()=>{
-    api.deleteCard(card._cardId).then(()=>{
-      deleteCardConfirm.close();
-      card._handleDeleteIcon()
-    })
-   
-})
-}
-
 const previewImage = new PopupWithImage({
   popupSelector: "#modal__preview-image",
 });
 previewImage._setEventListeners();
-
-
-
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();

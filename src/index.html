@@ -116,6 +116,30 @@
         </form>
       </div>
     </div>
+    <!--avatar form come back to this-->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="add-card-close"></button>
+        <p class="modal__heading">profile edit</p>
+        <form class="modal__form" name="add-form" id="card-add-form">
+          
+          <input
+            type="url"
+            class="modal__input modal__input_type_url"
+            id="add-image-link"
+            name="url"
+            placeholder="Image Link"
+            required
+          />
+          <div class="modal__wrap">
+          <span class="modal__error" id="add-image-link-error"></span>
+          </div>
+          <button class="modal__button modal__button_disabled" disabled>
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
     <!-- CONFIRMATION FORM-->
     <div class="modal" id="delete-card-modal">
       <div class="modal__container">
