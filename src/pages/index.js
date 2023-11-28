@@ -85,11 +85,11 @@ function handleDeleteClick(card) {
 
 function handleLikeClick(card) {
   if (card.isLiked) {
-    api.likeCard(card._cardId).then(() => {
+    api.dislikeCard(card._cardId).then(() => {
       card._handleLikeIcon();
     });
   } else {
-    api.dislikeCard(card._cardId).then(() => {
+    api.likeCard(card._cardId).then(() => {
       card._handleLikeIcon();
     });
   }
