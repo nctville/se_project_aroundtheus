@@ -11,6 +11,7 @@ class Api {
     }
     return Promise.reject(`Error: ${res.status}`);
   }
+
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
@@ -21,6 +22,7 @@ class Api {
       headers: this._headers,
     }).then(this._handleResponse);
   }
+
   addNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
@@ -29,17 +31,15 @@ class Api {
         name,
         link,
       }),
-    })
-    .then(this._handleResponse);
+    }).then(this._handleResponse);
   }
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-     
-    })
-    .then(this._handleResponse);
+    }).then(this._handleResponse);
   }
+
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
@@ -58,6 +58,19 @@ class Api {
       this._handleResponse(res);
     });
   }
-  }
+
+
+patchProfileInfo(data) {
+  return fetch(`${this._baseUrl}/users/me`,{
+    method: "PATCH",
+    headers: this._headers,
+    body: JSON.stringify({
+      name: data.name,
+      about: data.description,
+    }),
+  }).then(this._getRes);
+}
+
+}
 
 export default Api;

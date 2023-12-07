@@ -15,9 +15,14 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardForm = addCardModal.querySelector(".modal__form");
 const cardSelector = "#card-template";
+const avatarForm = document.querySelector("#avatar-form");
 
 //add card variables
 const addCardBtn = document.querySelector(".profile__add-button");
+
+//profile avatar form
+
+const profileAvatarBtn = document.querySelector(".profile__avatar-btn");
 
 // Buttons + DOM nodes
 const profileEditBtn = document.querySelector(".profile__edit-button");
@@ -108,6 +113,12 @@ const popupAddCardForm = new PopupWithForm({
 });
 popupAddCardForm.setEventListeners();
 
+const profileAvatarForm = new PopupWithForm({
+  popupSelector: "#avatar-modal",
+  handleFormSubmit: handleProfileAvatarSubmit,
+});
+profileAvatarForm.setEventListeners();
+
 const deleteCardConfirm = new PopupWithConfirmation({
   popupSelector: "#delete-card-modal",
 });
@@ -122,17 +133,34 @@ const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(config, addCardForm);
 addCardFormValidator.enableValidation();
+const avatarFormValidator = new FormValidator(config, avatarForm);
+avatarFormValidator.enableValidation();
 
 //handle form submits
 
 function handleProfileFormSubmit(data) {
   userInfo.setUserInfo(data);
+  api
+  .patchProfileInfo(data)
+  .then(() => {
+    userInfo.setUserInfo(data.name, data.description);
+   
+  })
+  .catch((err) => {
+    console.error(err);
+  })
+
+
 }
 
 function handleAddCardSubmit({ title, url }) {
   api.addNewCard({ name: title, link: url }).then((data) => {
     section.addItem(data);
   });
+}
+
+function handleProfileAvatarSubmit({avatar}){
+  userInfo.setAvatarImg({ avatar })
 }
 
 //event listeners
@@ -148,4 +176,9 @@ profileEditBtn.addEventListener("click", () => {
 addCardBtn.addEventListener("click", () => {
   addCardFormValidator.disableBtn();
   popupAddCardForm.open();
+});
+
+profileAvatarBtn.addEventListener("click", () => {
+  
+  profileAvatarForm.open();
 });
