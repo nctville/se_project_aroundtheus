@@ -73,6 +73,7 @@ const userInfo = new UserInfo({
 });
 
 api.getInitialInfo().then((userData) => {
+  userInfo.setAvatarImg(userData.avatar)
   userInfo.setUserInfo({
     name: userData.name,
     description: userData.about,
@@ -139,12 +140,13 @@ avatarFormValidator.enableValidation();
 
 //handle form submits
 
-function handleProfileFormSubmit(data) {
+function handleProfileFormSubmit(userData) {
   
   api
-  .patchProfileInfo(data)
+  .patchProfileInfo(userData)
   .then(() => {
-    userInfo.setUserInfo(data.name, data.description);
+    userInfo.setUserInfo({name: userData.name,
+      description: userData.description,});
    
   })
   .catch((err) => {
@@ -162,9 +164,9 @@ function handleAddCardSubmit({ title, url }) {
 
 function handleProfileAvatarSubmit( avatar ) {
   api
-  .patchAvatar(avatar)
-  .then(() => {
-    userInfo.setAvatarImg(avatar);
+  .patchAvatar(avatar.url)
+  .then((res) => {
+    userInfo.setAvatarImg(res.avatar);
    
   })
   .catch((err) => {

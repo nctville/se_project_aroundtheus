@@ -17,7 +17,7 @@ class UserInfo {
     this._job.textContent = description;
   }
 
-  setAvatarImg({ avatar }) {
+  setAvatarImg( avatar ) {
     this._avatar.src = avatar;
 }
 }

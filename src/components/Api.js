@@ -80,8 +80,8 @@ patchAvatar(url) {
     body: JSON.stringify({
       avatar: url,
     }),
-  }).then((res) => {
-    this._handleResponse(res);
+  }).then((res) => { 
+   return this._handleResponse(res);
   });
 }
 
