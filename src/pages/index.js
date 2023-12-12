@@ -20,6 +20,7 @@ const avatarForm = document.querySelector("#avatar-form");
 //add card variables
 const addCardBtn = document.querySelector(".profile__add-button");
 
+
 //profile avatar form
 
 const profileAvatarBtn = document.querySelector(".profile__avatar-btn");
@@ -89,16 +90,14 @@ api.getInitialInfo().then((userData) => {
 function handleDeleteClick(card) {
   deleteCardConfirm.open();
   deleteCardConfirm.setSubmitAction(() => {
-    deleteCardConfirm.setLoading(true);
+   
     api
       .deleteCard(card._cardId)
       .then(() => {
         deleteCardConfirm.close();
         card._handleDeleteIcon();
       })
-      .finally(() => {
-        confirmDelete.setLoading(false, "Yes");
-      });
+       
   });
 }
 
@@ -164,7 +163,7 @@ function handleProfileFormSubmit(userData) {
     .catch((err) => {
       console.error(err);
     })
-    .finally(() => editProfilePopup.setLoading(false, "Save"));
+    .finally(() => popupEditForm.setLoading(false, "Save"));
 }
 
 function handleAddCardSubmit({ title, url }) {
