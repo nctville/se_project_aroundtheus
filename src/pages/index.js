@@ -84,8 +84,11 @@ api.getInitialInfo().then((userData) => {
   userInfo.setUserInfo({
     name: userData.name,
     description: userData.about,
+  })
+  }).catch((err) => {
+    console.error(err);
   });
-});
+
 
 function handleDeleteClick(card) {
   deleteCardConfirm.open();
@@ -96,6 +99,8 @@ function handleDeleteClick(card) {
       .then(() => {
         deleteCardConfirm.close();
         card._handleDeleteIcon();
+      }).catch((err) => {
+        console.error(err);
       })
        
   });
@@ -105,10 +110,14 @@ function handleLikeClick(card) {
   if (card.isLiked) {
     api.dislikeCard(card._cardId).then(() => {
       card._handleLikeIcon();
+    }).catch((err) => {
+      console.error(err);
     });
   } else {
     api.likeCard(card._cardId).then(() => {
       card._handleLikeIcon();
+    }).catch((err) => {
+      console.error(err);
     });
   }
 }
@@ -172,6 +181,8 @@ function handleAddCardSubmit({ title, url }) {
     .addNewCard({ name: title, link: url })
     .then((data) => {
       section.addItem(data);
+    }).catch((err) => {
+      console.error(err);
     })
     .finally(() => popupAddCardForm.setLoading(false, "Create"));
 }
