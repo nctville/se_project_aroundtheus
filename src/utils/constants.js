@@ -46,3 +46,4 @@ export const initialCards = [
     imagePopup: "#modal__preview-image"
   } 
 
+  export const cardSelector = "#card-template";

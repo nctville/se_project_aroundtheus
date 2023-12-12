@@ -5,7 +5,8 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { config } from "../utils/constants.js";
+import { config, cardSelector } from "../utils/constants.js";
+
 import Api from "../components/Api.js";
 import "./index.css";
 
@@ -14,7 +15,7 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardForm = addCardModal.querySelector(".modal__form");
-const cardSelector = "#card-template";
+
 const avatarForm = document.querySelector("#avatar-form");
 
 //add card variables
@@ -95,7 +96,7 @@ function handleDeleteClick(card) {
   deleteCardConfirm.setSubmitAction(() => {
    
     api
-      .deleteCard(card._cardId)
+      .deleteCard(card.cardId)
       .then(() => {
         deleteCardConfirm.close();
         card._handleDeleteIcon();
@@ -108,13 +109,13 @@ function handleDeleteClick(card) {
 
 function handleLikeClick(card) {
   if (card.isLiked) {
-    api.dislikeCard(card._cardId).then(() => {
+    api.dislikeCard(card.cardId).then(() => {
       card._handleLikeIcon();
     }).catch((err) => {
       console.error(err);
     });
   } else {
-    api.likeCard(card._cardId).then(() => {
+    api.likeCard(card.cardId).then(() => {
       card._handleLikeIcon();
     }).catch((err) => {
       console.error(err);
@@ -160,6 +161,7 @@ avatarFormValidator.enableValidation();
 //handle form submits
 
 function handleProfileFormSubmit(userData) {
+ 
   popupEditForm.setLoading(true);
   api
     .patchProfileInfo(userData)
@@ -168,6 +170,7 @@ function handleProfileFormSubmit(userData) {
         name: userData.name,
         description: userData.description,
       });
+      profileAvatarForm.close()
     })
     .catch((err) => {
       console.error(err);
@@ -176,11 +179,13 @@ function handleProfileFormSubmit(userData) {
 }
 
 function handleAddCardSubmit({ title, url }) {
+  
   popupAddCardForm.setLoading(true);
   api
     .addNewCard({ name: title, link: url })
     .then((data) => {
       section.addItem(data);
+      profileAvatarForm.close()
     }).catch((err) => {
       console.error(err);
     })
@@ -193,6 +198,7 @@ function handleProfileAvatarSubmit(avatar) {
     .patchAvatar(avatar.url)
     .then((res) => {
       userInfo.setAvatarImg(res.avatar);
+      profileAvatarForm.close()
     })
     .catch((err) => {
       console.error(err);

@@ -9,7 +9,7 @@ class Card {
   ) {
     this._name = data.name;
     this._link = data.link;
-    this._cardId = data._id;
+    this.cardId = data._id;
     this.isLiked = data.isLiked;
     this._cardSelector = cardSelector;
     this._handleDeleteClick = handleDeleteClick;
