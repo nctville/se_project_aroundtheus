@@ -6,11 +6,19 @@ class PopupWithConfirmation extends Popup {
 
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._saveButton = this._popupForm.querySelector(".modal__button");
-
+    this._saveButtonText = this._saveButton.textContent;
   }
 
   setSubmitAction(action) {
     this._handleFormSubmit = action;
+  }
+
+  setLoading(isLoading) {
+    if (isLoading) {
+      this._submitButton.textContent = "Saving...";
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
   }
 
   setEventListeners() {
