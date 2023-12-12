@@ -162,7 +162,7 @@ function handleAddCardSubmit({ title, url }) {
 
 function handleProfileAvatarSubmit( avatar ) {
   api
-  .patchAvatar(url)
+  .patchAvatar(avatar)
   .then(() => {
     userInfo.setAvatarImg(avatar);
    
