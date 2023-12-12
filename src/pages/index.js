@@ -69,6 +69,7 @@ function createCard(data) {
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   jobSelector: ".profile__description",
+  avatarSelector: ".profile__picture",
 });
 
 api.getInitialInfo().then((userData) => {
@@ -139,7 +140,7 @@ avatarFormValidator.enableValidation();
 //handle form submits
 
 function handleProfileFormSubmit(data) {
-  userInfo.setUserInfo(data);
+  
   api
   .patchProfileInfo(data)
   .then(() => {
@@ -159,8 +160,16 @@ function handleAddCardSubmit({ title, url }) {
   });
 }
 
-function handleProfileAvatarSubmit({avatar}){
-  userInfo.setAvatarImg({ avatar })
+function handleProfileAvatarSubmit( avatar ) {
+  api
+  .patchAvatar(url)
+  .then(() => {
+    userInfo.setAvatarImg(avatar);
+   
+  })
+  .catch((err) => {
+    console.error(err);
+  })
 }
 
 //event listeners

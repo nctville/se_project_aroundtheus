@@ -68,7 +68,21 @@ patchProfileInfo(data) {
       name: data.name,
       about: data.description,
     }),
-  }).then(this._getRes);
+  }).then((res) => {
+    this._handleResponse(res);
+  });
+}
+
+patchAvatar(url) {
+  return fetch(`${this._baseUrl}/users/me/avatar`, {
+    method: "PATCH",
+    headers: this._headers,
+    body: JSON.stringify({
+      avatar: url,
+    }),
+  }).then((res) => {
+    this._handleResponse(res);
+  });
 }
 
 }
