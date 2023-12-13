@@ -51,9 +51,8 @@ class Api {
   dislikeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: {
-        headers: this._headers,
-      },
+      headers: this._headers,
+      
     }).then((res) => {
       this._handleResponse(res);
     });

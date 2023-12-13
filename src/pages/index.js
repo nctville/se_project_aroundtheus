@@ -185,7 +185,7 @@ function handleAddCardSubmit({ title, url }) {
     .addNewCard({ name: title, link: url })
     .then((data) => {
       section.addItem(data);
-      profileAvatarForm.close()
+      popupAddCardForm.close()
     }).catch((err) => {
       console.error(err);
     })
@@ -224,6 +224,6 @@ addCardBtn.addEventListener("click", () => {
 });
 
 profileAvatarBtn.addEventListener("click", () => {
-  profileAvatarForm.disableBtn();
+  avatarFormValidator.disableBtn();
   profileAvatarForm.open();
 });
