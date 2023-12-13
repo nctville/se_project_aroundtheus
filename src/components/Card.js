@@ -18,10 +18,6 @@ class Card {
     
   }
 
-  isLiked() {
-    return this.isLiked;
-  }
-
   _updateLikes() {
     if (this.isLiked) {
       this._likeButton.classList.add("card__like-button_active");
@@ -51,7 +47,7 @@ class Card {
       .classList.toggle("card__like-button_active");
   }
 
-  _handleDeleteIcon() {
+  handleDeleteIcon() {
     this._cardElement.remove();
     this._cardElement = null;
   }

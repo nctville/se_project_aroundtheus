@@ -99,7 +99,7 @@ function handleDeleteClick(card) {
       .deleteCard(card.cardId)
       .then(() => {
         deleteCardConfirm.close();
-        card._handleDeleteIcon();
+        card.handleDeleteIcon();
       }).catch((err) => {
         console.error(err);
       })
@@ -170,7 +170,7 @@ function handleProfileFormSubmit(userData) {
         name: userData.name,
         description: userData.description,
       });
-      profileAvatarForm.close()
+      popupEditForm.close()
     })
     .catch((err) => {
       console.error(err);
@@ -224,5 +224,6 @@ addCardBtn.addEventListener("click", () => {
 });
 
 profileAvatarBtn.addEventListener("click", () => {
+  profileAvatarForm.disableBtn();
   profileAvatarForm.open();
 });

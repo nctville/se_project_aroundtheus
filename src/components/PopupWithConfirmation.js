@@ -15,7 +15,7 @@ class PopupWithConfirmation extends Popup {
 
   setLoading(isLoading) {
     if (isLoading) {
-      this._submitButton.textContent = "Saving...";
+      this._submitButton.textContent = "Deleting...";
     } else {
       this._submitButton.textContent = this._submitButtonText;
     }

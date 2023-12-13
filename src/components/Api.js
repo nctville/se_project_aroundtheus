@@ -52,7 +52,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: {
-        authorization: "fe7e07a4-81c5-490b-807b-e6a7cec619a0",
+        headers: this._headers,
       },
     }).then((res) => {
       this._handleResponse(res);
