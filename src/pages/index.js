@@ -116,7 +116,7 @@ function handleLikeClick(card) {
     });
   } else {
     api.likeCard(card.cardId).then(() => {
-      card._handleLikeIcon();
+      card.handleLikeIcon();
     }).catch((err) => {
       console.error(err);
     });
