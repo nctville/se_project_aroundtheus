@@ -110,7 +110,7 @@ function handleDeleteClick(card) {
 function handleLikeClick(card) {
   if (card.isLiked) {
     api.dislikeCard(card.cardId).then(() => {
-      card._handleLikeIcon();
+      card.handleLikeIcon();
     }).catch((err) => {
       console.error(err);
     });

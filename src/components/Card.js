@@ -41,7 +41,7 @@ class Card {
     });
   }
 
-  _handleLikeIcon() {
+  handleLikeIcon() {
     this._cardElement
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
