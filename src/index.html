@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Nick Turberville" />
+    <meta name="author" content="Nick T" />
     <title>Around The U.S.</title>
     <link rel="shortcut icon" href="./favicon.ico" />
   </head>
@@ -19,11 +19,19 @@
       </header>
       <main class="content">
         <section class="profile">
+          <div class="profile__avatar-container">
           <img
             src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="avatar"
             class="profile__picture"
           />
+          <button
+              class="profile__avatar-btn"
+              id="avatar-btn"
+              type="button"
+            ></button>
+        </div>
+        
           <div class="profile__info">
             <h1 class="profile__name">Jacques Cousteau</h1>
             <button class="profile__edit-button" type="button"></button>
@@ -54,7 +62,6 @@
             maxlength="40"
             minlength="2"
             required
-            
           />
           <div class="modal__wrap">
             <span class="modal__error" id="profile-name-input-error"></span>
@@ -68,7 +75,6 @@
             maxlength="200"
             minlength="2"
             required
-            
           />
           <div class="modal__wrap">
             <span
@@ -76,7 +82,9 @@
               id="profile-description-input-error"
             ></span>
           </div>
-          <button class="modal__button modal__button_disabled" disabled>Save</button>
+          <button class="modal__button modal__button_disabled" disabled>
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -97,8 +105,7 @@
             required
           />
           <div class="modal__wrap">
-
-          <span class="modal__error" id="add-card-form-error"></span>
+            <span class="modal__error" id="add-card-form-error"></span>
           </div>
           <input
             type="url"
@@ -109,10 +116,45 @@
             required
           />
           <div class="modal__wrap">
-
           <span class="modal__error" id="add-image-link-error"></span>
           </div>
-          <button class="modal__button modal__button_disabled" disabled>Create</button>
+          <button class="modal__button modal__button_disabled" disabled>
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
+    <!--avatar form-->
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="add-card-close"></button>
+        <p class="modal__heading">Change profile picture</p>
+        <form class="modal__form" name="add-form" id="avatar-form">
+          
+          <input
+            type="url"
+            class="modal__input modal__input_type_url"
+            id="add-image-link"
+            name="url"
+            placeholder="Image Link"
+            required
+          />
+          <div class="modal__wrap">
+          <span class="modal__error" id="add-image-link-error"></span>
+          </div>
+          <button class="modal__button modal__button_disabled">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- CONFIRMATION FORM-->
+    <div class="modal" id="delete-card-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <p class="modal__heading">Are you sure?</p>
+        <form class="modal__form" name="conrimation-form" id="confirm-form">
+          <button class="modal__button" type="submit">Yes</button>
         </form>
       </div>
     </div>
